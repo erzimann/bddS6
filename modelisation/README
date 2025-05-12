@@ -1,0 +1,38 @@
+CODE LDD
+        CREATE TABLE Utilisateur(
+   Id_Utilisateur COUNTER,
+   Nom VARCHAR(50),
+   prenom VARCHAR(50),
+   email VARCHAR(50),
+   PRIMARY KEY(Id_Utilisateur)
+);
+
+CREATE TABLE materiel(
+   Id_materiel COUNTER,
+   nom VARCHAR(50),
+   PRIMARY KEY(Id_materiel)
+);
+
+CREATE TABLE reservation(
+   Id_reservation COUNTER,
+   datedebut DATETIME,
+   datefin VARCHAR(50),
+   Id_Utilisateur INT NOT NULL,
+   Id_materiel INT NOT NULL,
+   PRIMARY KEY(Id_reservation),
+   FOREIGN KEY(Id_Utilisateur) REFERENCES Utilisateur(Id_Utilisateur),
+   FOREIGN KEY(Id_materiel) REFERENCES materiel(Id_materiel)
+);
+
+// Explication des choix de modélisations
+
+    // base
+
+        On commence notre MCD en ajoutant les pilliers de notre DB de reservation soit, une entité "utilisateur" à laquelle on associe  0 ou plusieur reservation, 
+        une entité "reservation" pour stocker chaque reservations à laquelle on associe 1 utilisateur et un 1 element à reserver et enfin une entité materiel qui
+        symbolise l'element à reserver à laquelle on associe 0 ou plusieur reservations.
+    
+    // Update Exo 1
+
+
+
