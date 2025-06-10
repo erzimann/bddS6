@@ -17,7 +17,17 @@ CREATE TABLE Reservation (
     Id_Utilisateur INT NOT NULL,
     Id_Materiel INT NOT NULL,
     FOREIGN KEY (Id_Utilisateur) REFERENCES Utilisateur(Id_Utilisateur),
-    FOREIGN KEY (Id_Materiel) REFERENCES Materiel(Id_Materiel)
+    FOREIGN KEY (Id_Materiel) REFERENCES Materiel(Id_Materiel),
+    FOREIGN KEY (Id_Disponibilite) REFERENCES Disponibilite(Id_Disponibilite)
+);
+
+CREATE TABLE Disponibilite(
+   Id_Disponibilite SERIAL,
+   DateDebut TIMESTAMP NOT NULL,
+   DateFin TIMESTAMP NOT NULL,
+   Id_Materiel INTEGER NOT NULL,
+   PRIMARY KEY(Id_Disponibilite),
+   FOREIGN KEY(Id_Materiel) REFERENCES Materiel(Id_Materiel)
 );
 // Explication des choix de modélisations
 
